@@ -13,6 +13,8 @@
 		435D48ED23BCFC690005A191 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435D48EB23BCFC690005A191 /* Main.storyboard */; };
 		435D48EF23BCFC6C0005A191 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 435D48EE23BCFC6C0005A191 /* Assets.xcassets */; };
 		435D48F223BCFC6C0005A191 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435D48F023BCFC6C0005A191 /* LaunchScreen.storyboard */; };
+		435D48FB23BD003D0005A191 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 435D48FA23BD003D0005A191 /* ThirstySoftRegular.otf */; };
+		435D48FD23BD00490005A191 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 435D48FC23BD00490005A191 /* Delm-Medium.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		435D48EE23BCFC6C0005A191 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		435D48F123BCFC6C0005A191 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		435D48F323BCFC6C0005A191 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		435D48FA23BD003D0005A191 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
+		435D48FC23BD00490005A191 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +67,18 @@
 				435D48EE23BCFC6C0005A191 /* Assets.xcassets */,
 				435D48F023BCFC6C0005A191 /* LaunchScreen.storyboard */,
 				435D48F323BCFC6C0005A191 /* Info.plist */,
+				435D48F923BCFFA70005A191 /* Supporting Files */,
 			);
 			path = Instagrid;
+			sourceTree = "<group>";
+		};
+		435D48F923BCFFA70005A191 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				435D48FC23BD00490005A191 /* Delm-Medium.otf */,
+				435D48FA23BD003D0005A191 /* ThirstySoftRegular.otf */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +140,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				435D48F223BCFC6C0005A191 /* LaunchScreen.storyboard in Resources */,
+				435D48FD23BD00490005A191 /* Delm-Medium.otf in Resources */,
 				435D48EF23BCFC6C0005A191 /* Assets.xcassets in Resources */,
+				435D48FB23BD003D0005A191 /* ThirstySoftRegular.otf in Resources */,
 				435D48ED23BCFC690005A191 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
