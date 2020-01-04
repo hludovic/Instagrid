@@ -16,10 +16,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var arrowImage: UIImageView!
     private var tagSelectedImageView: Int?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        refreshView()
     }
     
     
@@ -59,6 +58,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    private func refreshView() {
+        let orientation = UIDevice.current.orientation
+        switch orientation {
+        case .landscapeLeft, .landscapeRight:
+            swipeLabel.text = "Swipe left to share"
+            arrowImage.image = #imageLiteral(resourceName: "Arrow Left") //Arrow left icon
+        case .portrait:
+            swipeLabel.text = "Swipe up to share"
+            arrowImage.image = #imageLiteral(resourceName: "Arrow Up") // Arrow up icon
+        default:
+            break
+        }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        refreshView()
+    }
+        
     private func showImagePicker(){
         let picker = UIImagePickerController()
         picker.delegate = self
