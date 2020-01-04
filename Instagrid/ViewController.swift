@@ -19,17 +19,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         refreshView()
-    }
-    
-    
-    @IBAction func switchToABCC() {
-        selectModeView.mode = .abcc
-        addPhotoVIew.mode = .abcc
+        addPhotoVIew.mode = .aacd
+        selectModeView.mode = .aacd
     }
     
     @IBAction func switchToAACD() {
         selectModeView.mode = .aacd
         addPhotoVIew.mode = .aacd
+    }
+    
+    @IBAction func switchToABCC() {
+        selectModeView.mode = .abcc
+        addPhotoVIew.mode = .abcc
     }
 
     @IBAction func switchToABCD() {
@@ -64,11 +65,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         case .landscapeLeft, .landscapeRight:
             swipeLabel.text = "Swipe left to share"
             arrowImage.image = #imageLiteral(resourceName: "Arrow Left") //Arrow left icon
-        case .portrait:
+        default:
             swipeLabel.text = "Swipe up to share"
             arrowImage.image = #imageLiteral(resourceName: "Arrow Up") // Arrow up icon
-        default:
-            break
         }
     }
     

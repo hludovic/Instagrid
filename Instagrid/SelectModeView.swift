@@ -24,10 +24,10 @@ class SelectModeView: UIStackView {
     
     private func setMode(mode: Mode) {
         switch mode {
-        case .abcc:
+        case .aacd:
             clearButtons()
             buttonMode[0].setImage(#imageLiteral(resourceName: "Selected"), for: .normal)
-        case .aacd:
+        case .abcc:
             clearButtons()
             buttonMode[1].setImage(#imageLiteral(resourceName: "Selected"), for: .normal)
         case .abcd:

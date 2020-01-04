@@ -29,12 +29,12 @@ class AddPhotoView: UIView {
     
     private func setMode(mode: Mode) {
         switch mode {
-        case .abcc:
+        case .aacd:
             images[1].isHidden = false
             images[3].isHidden = true
             buttonsAdd[1].isHidden = false
             buttonsAdd[3].isHidden = true
-        case .aacd:
+        case .abcc:
             images[1].isHidden = true
             images[3].isHidden = false
             buttonsAdd[1].isHidden = true
