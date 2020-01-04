@@ -77,15 +77,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.arrowImage.transform = animation!
         }) { (isComplet) in
             if isComplet {
-                let ac = UIActivityViewController(activityItems: [self.image(with: self.addPhotoVIew)!], applicationActivities: nil)
-                self.present(ac, animated: true, completion: nil)
-                ac.completionWithItemsHandler = self.afterActivityView(activityType:completed:items:Error:)
+                if let image = self.imageConverter(self.addPhotoVIew) {
+                    let ac = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+                    self.present(ac, animated: true, completion: nil)
+                    ac.completionWithItemsHandler = self.afterActivityView(activityType:completed:items:Error:)
+                }
             }
         }
     }
     
-    
-    func image(with view: UIView) -> UIImage? {
+    func imageConverter(_ view: UIView) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
         defer { UIGraphicsEndImageContext() }
         if let context = UIGraphicsGetCurrentContext() {
@@ -164,6 +165,5 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         dismiss(animated: true, completion: nil)
     }
-    
 }
 
