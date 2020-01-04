@@ -15,6 +15,8 @@
 		435D48F223BCFC6C0005A191 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435D48F023BCFC6C0005A191 /* LaunchScreen.storyboard */; };
 		435D48FB23BD003D0005A191 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 435D48FA23BD003D0005A191 /* ThirstySoftRegular.otf */; };
 		435D48FD23BD00490005A191 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 435D48FC23BD00490005A191 /* Delm-Medium.otf */; };
+		436B0E5B23BFA9EC00F1A537 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436B0E5A23BFA9EC00F1A537 /* AddPhotoView.swift */; };
+		43B5CDA723C00C580079D5D6 /* SelectModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B5CDA623C00C580079D5D6 /* SelectModeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		435D48F323BCFC6C0005A191 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		435D48FA23BD003D0005A191 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		435D48FC23BD00490005A191 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
+		436B0E5A23BFA9EC00F1A537 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
+		43B5CDA623C00C580079D5D6 /* SelectModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 				435D48E723BCFC690005A191 /* SceneDelegate.swift */,
 				435D48E923BCFC690005A191 /* ViewController.swift */,
 				435D48EB23BCFC690005A191 /* Main.storyboard */,
+				43B5CDA623C00C580079D5D6 /* SelectModeView.swift */,
+				436B0E5A23BFA9EC00F1A537 /* AddPhotoView.swift */,
 				435D48EE23BCFC6C0005A191 /* Assets.xcassets */,
 				435D48F023BCFC6C0005A191 /* LaunchScreen.storyboard */,
 				435D48F323BCFC6C0005A191 /* Info.plist */,
@@ -155,8 +161,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				435D48EA23BCFC690005A191 /* ViewController.swift in Sources */,
+				43B5CDA723C00C580079D5D6 /* SelectModeView.swift in Sources */,
 				435D48E623BCFC690005A191 /* AppDelegate.swift in Sources */,
 				435D48E823BCFC690005A191 /* SceneDelegate.swift in Sources */,
+				436B0E5B23BFA9EC00F1A537 /* AddPhotoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
