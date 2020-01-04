@@ -27,6 +27,20 @@ class AddPhotoView: UIView {
         }
     }
     
+    func foisdeux(){
+        for image in images {
+            let newWidth  = image.image!.size.width * 2
+            let newHeight = image.image!.size.height * 2
+            let newSize: CGSize = CGSize(width: newWidth, height: newHeight)
+            let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+            UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+            image.image!.draw(in: rect)
+            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            image.image = newImage
+        }
+    }
+    
     private func setMode(mode: Mode) {
         switch mode {
         case .aacd:
@@ -46,7 +60,6 @@ class AddPhotoView: UIView {
             buttonsAdd[3].isHidden = false
         }
     }
-    
     
     func insertPhoto(tag: Int, photo: UIImage) {
         switch tag {

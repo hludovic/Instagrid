@@ -65,5 +65,7 @@
 		<string>Delm-Medium</string>
 		<string>ThirstySoftRegular</string>
 	</array>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>We would like to access Photo to save your creation.</string>
 </dict>
 </plist>

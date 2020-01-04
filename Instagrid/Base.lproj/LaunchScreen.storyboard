@@ -23,7 +23,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.72045397759999996" green="0.84208649400000002" blue="0.89805054660000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="aIv-bG-X3m" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="E7a-Pe-36Z"/>
                             <constraint firstItem="aIv-bG-X3m" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="vNN-07-gT1"/>
@@ -33,7 +33,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+            <point key="canvasLocation" x="26" y="40"/>
         </scene>
     </scenes>
     <resources>
