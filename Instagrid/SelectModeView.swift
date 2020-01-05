@@ -22,6 +22,8 @@ class SelectModeView: UIStackView {
         }
     }
     
+    /// Activates a button according to the chosen mode.
+    /// - Parameter mode: Defines which button will be activated
     private func setMode(mode: Mode) {
         switch mode {
         case .aacd:
@@ -36,10 +38,12 @@ class SelectModeView: UIStackView {
         }
     }
     
+    /// This method deletes all images in the buttons.
+    /// Useful to disable all buttons.
     private func clearButtons() {
-        buttonMode[0].setImage(nil, for: .normal)
-        buttonMode[1].setImage(nil, for: .normal)
-        buttonMode[2].setImage(nil, for: .normal)
+        for button in buttonMode {
+            button.setImage(nil, for: .normal)
+        }
     }
     
 }

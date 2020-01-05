@@ -12,8 +12,8 @@ class AddPhotoView: UIView {
 
     @IBOutlet private var images: [UIImageView]!
     @IBOutlet private var buttonsAdd: [UIButton]!
-    @IBOutlet weak var stackUp: UIStackView!
-    @IBOutlet weak var stackDown: UIStackView!
+    @IBOutlet weak private var stackUp: UIStackView!
+    @IBOutlet weak private var stackDown: UIStackView!
 
     enum Mode {
         case abcc, aacd, abcd
@@ -27,7 +27,9 @@ class AddPhotoView: UIView {
         }
     }
     
-    func foisdeux(){
+    /// This method doubles the size of a UIImage.
+    /// Useful to double the size of the "+" Buttons, and thus be conform to the design.
+    func doubleImagesSize(){
         for image in images {
             let newWidth  = image.image!.size.width * 2
             let newHeight = image.image!.size.height * 2
@@ -41,6 +43,8 @@ class AddPhotoView: UIView {
         }
     }
     
+    /// Changes the layout of the images contained in this AddPhotoView.
+    /// - Parameter mode: Defines how the images will be arranged.
     private func setMode(mode: Mode) {
         switch mode {
         case .aacd:
@@ -61,6 +65,10 @@ class AddPhotoView: UIView {
         }
     }
     
+    /// A method that allows you to insert an image in the AddPhotoView
+    /// - Parameters:
+    ///   - tag: The rank of the image to be displayed [0...3].
+    ///   - photo: The UIImage to be displayed
     func insertPhoto(tag: Int, photo: UIImage) {
         switch tag {
         case 0:

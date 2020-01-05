@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    // MARK: - Properties
     @IBOutlet weak var addPhotoVIew: AddPhotoView!
     @IBOutlet weak var selectModeView: SelectModeView!
     @IBOutlet weak var swipeLabel: UILabel!
@@ -20,7 +20,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         case landscape, portrait
     }
     
-    var orientation: Orientation = .portrait {
+    private var orientation: Orientation = .portrait {
         didSet {
             switch orientation {
             case .landscape:
@@ -32,6 +32,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
         }
     }
+    // MARK: - Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         orientation = .portrait
         addPhotoVIew.mode = .aacd
         selectModeView.mode = .aacd
-        addPhotoVIew.foisdeux()
+        addPhotoVIew.doubleImagesSize()
         
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeGesture(_:)))
         swipeUp.direction = .up
@@ -50,6 +51,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         addPhotoVIew.addGestureRecognizer(swipeLeft)
     }
     
+    /// This method will be called when a swipe is exerted on the AddPhotoView.
+    /// - Parameter sender: The UISwipeGestureRecognizer that was performed.
     @objc func swipeGesture(_ sender: UISwipeGestureRecognizer) {
         if sender.direction == .up {
             if orientation == .portrait {
@@ -63,6 +66,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    /// Slides the AddPhotoView out of the screen, and adjusts to the screen orientation.
     private func animation() {
         let animation: CGAffineTransform!
         switch orientation {
@@ -86,7 +90,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    func imageConverter(_ view: UIView) -> UIImage? {
+    /// Convert a UIView into an UIImage
+    /// - Parameter view: The UIView that will  be converted into an UIImage.
+    private func imageConverter(_ view: UIView) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
         defer { UIGraphicsEndImageContext() }
         if let context = UIGraphicsGetCurrentContext() {
@@ -97,6 +103,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return nil
     }
     
+    /// This method is an UIActivityViewController.CompletionWithItemsHandler. It is executed when the Activity View Controller has finished executing.
+    /// Here the AddPhotoView returns to its place.
+    /// - Parameters:
+    ///   - activityType: The type of the service that was selected by the user.
+    ///   - completed: true if the service was performed or false if it was not.
+    ///   - items: An array of NSExtensionItem objects containing any modified data.
+    ///   - Error: An error object if the activity failed to complete, or nil if the the activity completed normally.
     private func afterActivityView(activityType: UIActivity.ActivityType?, completed: Bool, items: [Any]?, Error: Error?) {
         UIView.animate(withDuration: 0.5, animations: {
             self.addPhotoVIew.transform = .identity
@@ -104,6 +117,39 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.arrowImage.transform = .identity
         }, completion: nil)
     }
+    
+    // This method is called when the size of the view has changed.
+    // Here it adapts the content of the view if the phone is in landscape or portrait mode.
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        switch UIDevice.current.orientation {
+        case .landscapeLeft, .landscapeRight:
+            orientation = .landscape
+        default:
+            orientation = .portrait
+        }
+    }
+    
+    /// This method displays an ImagePicker
+    private func showImagePicker(){
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.sourceType = .photoLibrary
+        picker.allowsEditing = false
+        present(picker, animated: true, completion: nil)
+    }
+    
+    // This method is called after the image has been selected in the ImagePicker.
+    // Here she inserts the chosen photo in the AddPhotoView.
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            addPhotoVIew.insertPhoto(tag: tagSelectedImageView!, photo: image)
+        } else {
+            return
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - @IBAction
     
     @IBAction func switchToAACD() {
         selectModeView.mode = .aacd
@@ -138,32 +184,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             break
         }
     }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        switch UIDevice.current.orientation {
-        case .landscapeLeft, .landscapeRight:
-            orientation = .landscape
-        default:
-            orientation = .portrait
-        }
-    }
-        
-    private func showImagePicker(){
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.sourceType = .photoLibrary
-        picker.allowsEditing = false
-        present(picker, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[.originalImage] as? UIImage {
 
-            addPhotoVIew.insertPhoto(tag: tagSelectedImageView!, photo: image)
-        } else {
-            return
-        }
-        dismiss(animated: true, completion: nil)
-    }
 }
 
