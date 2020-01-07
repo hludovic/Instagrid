@@ -32,6 +32,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
         }
     }
+    
     // MARK: - Methods
     
     override func viewDidLoad() {
@@ -89,7 +90,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    /// This method is an UIActivityViewController.CompletionWithItemsHandler. It is executed when the Activity View Controller has finished executing.
+    /// This UIActivityViewController.CompletionWithItemsHandler is executed when the ActivityViewController has finished executing.
     /// Here the AddPhotoView returns to its place.
     /// - Parameters:
     ///   - activityType: The type of the service that was selected by the user.
