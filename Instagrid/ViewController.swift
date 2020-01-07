@@ -81,26 +81,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.arrowImage.transform = animation!
         }) { (isComplet) in
             if isComplet {
-                if let image = self.imageConverter(self.addPhotoVIew) {
+                if let image = self.addPhotoVIew.toImage() {
                     let ac = UIActivityViewController(activityItems: [image], applicationActivities: nil)
                     self.present(ac, animated: true, completion: nil)
                     ac.completionWithItemsHandler = self.afterActivityView(activityType:completed:items:Error:)
                 }
             }
         }
-    }
-    
-    /// Convert a UIView into an UIImage
-    /// - Parameter view: The UIView that will  be converted into an UIImage.
-    private func imageConverter(_ view: UIView) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
-        defer { UIGraphicsEndImageContext() }
-        if let context = UIGraphicsGetCurrentContext() {
-            view.layer.render(in: context)
-            let image = UIGraphicsGetImageFromCurrentImageContext()
-            return image
-        }
-        return nil
     }
     
     /// This method is an UIActivityViewController.CompletionWithItemsHandler. It is executed when the Activity View Controller has finished executing.

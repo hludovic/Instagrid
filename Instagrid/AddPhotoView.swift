@@ -43,6 +43,20 @@ class AddPhotoView: UIView {
         }
     }
     
+    /// Convert a UIView into an UIImage
+    /// - Parameter view: The UIView that will  be converted into an UIImage.
+    func toImage() -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.isOpaque, 0.0)
+        defer { UIGraphicsEndImageContext() }
+        if let context = UIGraphicsGetCurrentContext() {
+            self.layer.render(in: context)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            return image
+        }
+        return nil
+    }
+
+    
     /// Changes the layout of the images contained in this AddPhotoView.
     /// - Parameter mode: Defines how the images will be arranged.
     private func setMode(mode: Mode) {
