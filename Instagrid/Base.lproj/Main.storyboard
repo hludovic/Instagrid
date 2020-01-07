@@ -160,10 +160,10 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="Layout 1"/>
                                         <connections>
-                                            <action selector="switchToAACD" destination="BYZ-38-t0r" eventType="touchUpInside" id="8bl-si-Iaq"/>
+                                            <action selector="touchModeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y8l-wA-hqt"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fb0-OF-hPJ">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fb0-OF-hPJ">
                                         <rect key="frame" x="88" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Fb0-OF-hPJ" secondAttribute="height" multiplier="1:1" priority="750" id="2EJ-Uu-xt4"/>
@@ -171,10 +171,10 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="Layout 2"/>
                                         <connections>
-                                            <action selector="switchToABCC" destination="BYZ-38-t0r" eventType="touchUpInside" id="GnO-cY-3BI"/>
+                                            <action selector="touchModeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kwX-qt-Iad"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lj3-xd-MdL">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lj3-xd-MdL">
                                         <rect key="frame" x="176" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="lj3-xd-MdL" secondAttribute="height" multiplier="1:1" id="Sra-DO-HdE"/>
@@ -182,7 +182,7 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="Layout 3"/>
                                         <connections>
-                                            <action selector="switchToABCD" destination="BYZ-38-t0r" eventType="touchUpInside" id="dxi-PO-KyS"/>
+                                            <action selector="touchModeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KPF-Mp-dNF"/>
                                         </connections>
                                     </button>
                                 </subviews>

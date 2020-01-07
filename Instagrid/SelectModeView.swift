@@ -25,16 +25,16 @@ class SelectModeView: UIStackView {
     /// Activates a button according to the chosen mode.
     /// - Parameter mode: Defines which button will be activated
     private func setMode(mode: Mode) {
-        switch mode {
-        case .aacd:
-            clearButtons()
-            buttonMode[0].setImage(#imageLiteral(resourceName: "Selected"), for: .normal)
-        case .abcc:
-            clearButtons()
-            buttonMode[1].setImage(#imageLiteral(resourceName: "Selected"), for: .normal)
-        case .abcd:
-            clearButtons()
-            buttonMode[2].setImage(#imageLiteral(resourceName: "Selected"), for: .normal)
+        clearButtons()
+        for button in buttonMode {
+            switch mode {
+            case .aacd:
+                if button.tag == 0 { button.setImage(#imageLiteral(resourceName: "Selected"), for: .normal)}
+            case .abcc:
+                if button.tag == 1 { button.setImage(#imageLiteral(resourceName: "Selected"), for: .normal)}
+            case .abcd:
+                if button.tag == 2 { button.setImage(#imageLiteral(resourceName: "Selected"), for: .normal)}
+            }
         }
     }
     

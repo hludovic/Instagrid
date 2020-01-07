@@ -40,7 +40,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         orientation = .portrait
         addPhotoVIew.mode = .aacd
         selectModeView.mode = .aacd
-        addPhotoVIew.doubleImagesSize()
         
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeGesture(_:)))
         swipeUp.direction = .up
@@ -138,21 +137,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // MARK: - @IBAction
     
-    @IBAction func switchToAACD() {
-        selectModeView.mode = .aacd
-        addPhotoVIew.mode = .aacd
+    @IBAction func touchModeButton(_ sender: UIButton){
+        if sender.tag == 0 {
+            selectModeView.mode = .aacd
+            addPhotoVIew.mode = .aacd
+        }
+        
+        if sender.tag == 1 {
+            selectModeView.mode = .abcc
+            addPhotoVIew.mode = .abcc
+        }
+        
+        if sender.tag == 2 {
+            selectModeView.mode = .abcd
+            addPhotoVIew.mode = .abcd
+        }
     }
-    
-    @IBAction func switchToABCC() {
-        selectModeView.mode = .abcc
-        addPhotoVIew.mode = .abcc
-    }
-
-    @IBAction func switchToABCD() {
-        selectModeView.mode = .abcd
-        addPhotoVIew.mode = .abcd
-    }
-    
+        
     @IBAction func addPhoto(_ sender: UIButton) {
         switch sender.tag {
         case 0:
