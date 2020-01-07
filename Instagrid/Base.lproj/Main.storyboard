@@ -39,7 +39,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="eF8-hk-USm">
                                         <rect key="frame" x="15" y="14.999999999999993" width="226" height="106.33333333333331"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="yPd-fU-g6E">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="yPd-fU-g6E">
                                                 <rect key="frame" x="0.0" y="0.0" width="105" height="106.33333333333333"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
