@@ -26,29 +26,7 @@ class AddPhotoView: UIView {
             }
         }
     }
-    
-    // When this view is loaded, it double the size of the "Plus" images.
-    // Useful to conform to the design
-    override func awakeFromNib() {
-        doubleImagesSize()
-    }
-    
-    /// This method doubles the size of a UIImage.
-    /// Useful to double the size of the "+" Buttons, and thus be conform to the design.
-    private func doubleImagesSize(){
-        for image in images {
-            let newWidth  = image.image!.size.width * 2
-            let newHeight = image.image!.size.height * 2
-            let newSize: CGSize = CGSize(width: newWidth, height: newHeight)
-            let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
-            UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
-            image.image!.draw(in: rect)
-            let newImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            image.image = newImage
-        }
-    }
-    
+        
     /// Convert a UIView into an UIImage
     /// - Parameter view: The UIView that will  be converted into an UIImage.
     func toImage() -> UIImage? {
