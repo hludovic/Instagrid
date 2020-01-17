@@ -40,7 +40,6 @@ class AddPhotoView: UIView {
         return nil
     }
 
-    
     /// Changes the layout of the images contained in this AddPhotoView.
     /// - Parameter mode: Defines how the images will be arranged.
     private func setMode(mode: Mode) {

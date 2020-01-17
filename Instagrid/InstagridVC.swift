@@ -8,13 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    // MARK: - Properties
-    @IBOutlet weak var addPhotoVIew: AddPhotoView!
-    @IBOutlet weak var selectModeView: SelectModeView!
-    @IBOutlet weak var swipeLabel: UILabel!
-    @IBOutlet weak var arrowImage: UIImageView!
-    private var tagSelectedImageView: Int?
+class InstagridVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    @IBOutlet weak private var addPhotoView: AddPhotoView!
+    @IBOutlet weak private var selectModeView: SelectModeView!
+    @IBOutlet weak private var swipeLabel: UILabel!
+    @IBOutlet weak private var arrowImage: UIImageView!
+    private var tagImageViewSelected: Int?
 
     enum Orientation {
         case landscape, portrait
@@ -34,21 +33,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     // MARK: - Methods
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         orientation = .portrait
-        addPhotoVIew.mode = .aacd
+        addPhotoView.mode = .aacd
         selectModeView.mode = .aacd
         
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeGesture(_:)))
         swipeUp.direction = .up
-        addPhotoVIew.addGestureRecognizer(swipeUp)
+        addPhotoView.addGestureRecognizer(swipeUp)
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeGesture(_:)))
         swipeLeft.direction = .left
-        addPhotoVIew.addGestureRecognizer(swipeLeft)
+        addPhotoView.addGestureRecognizer(swipeLeft)
     }
     
     /// This method will be called when a swipe is exerted on the AddPhotoView.
@@ -76,12 +74,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             animation = CGAffineTransform(translationX: 0, y: -UIScreen.main.bounds.height)
         }
         UIView.animate(withDuration: 0.5, animations: {
-            self.addPhotoVIew.transform = animation!
+            self.addPhotoView.transform = animation!
             self.swipeLabel.transform = animation!
             self.arrowImage.transform = animation!
         }) { (isComplet) in
             if isComplet {
-                if let image = self.addPhotoVIew.toImage() {
+                if let image = self.addPhotoView.toImage() {
                     let ac = UIActivityViewController(activityItems: [image], applicationActivities: nil)
                     self.present(ac, animated: true, completion: nil)
                     ac.completionWithItemsHandler = self.afterActivityView(activityType:completed:items:Error:)
@@ -99,7 +97,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     ///   - Error: An error object if the activity failed to complete, or nil if the the activity completed normally.
     private func afterActivityView(activityType: UIActivity.ActivityType?, completed: Bool, items: [Any]?, Error: Error?) {
         UIView.animate(withDuration: 0.5, animations: {
-            self.addPhotoVIew.transform = .identity
+            self.addPhotoView.transform = .identity
             self.swipeLabel.transform = .identity
             self.arrowImage.transform = .identity
         }, completion: nil)
@@ -129,7 +127,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Here she inserts the chosen photo in the AddPhotoView.
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
-            addPhotoVIew.insertPhoto(tag: tagSelectedImageView!, photo: image)
+            addPhotoView.insertPhoto(tag: tagImageViewSelected!, photo: image)
         } else {
             return
         }
@@ -137,37 +135,36 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     // MARK: - @IBAction
-    
-    @IBAction func touchModeButton(_ sender: UIButton){
+    @IBAction private func touchModeButton(_ sender: UIButton){
         if sender.tag == 0 {
             selectModeView.mode = .aacd
-            addPhotoVIew.mode = .aacd
+            addPhotoView.mode = .aacd
         }
         
         if sender.tag == 1 {
             selectModeView.mode = .abcc
-            addPhotoVIew.mode = .abcc
+            addPhotoView.mode = .abcc
         }
         
         if sender.tag == 2 {
             selectModeView.mode = .abcd
-            addPhotoVIew.mode = .abcd
+            addPhotoView.mode = .abcd
         }
     }
         
-    @IBAction func addPhoto(_ sender: UIButton) {
+    @IBAction private func touchAddPhotoButton(_ sender: UIButton) {
         switch sender.tag {
         case 0:
-            tagSelectedImageView = sender.tag
+            tagImageViewSelected = sender.tag
             showImagePicker()
         case 1:
-            tagSelectedImageView = sender.tag
+            tagImageViewSelected = sender.tag
             showImagePicker()
         case 2:
-            tagSelectedImageView = sender.tag
+            tagImageViewSelected = sender.tag
             showImagePicker()
         case 3:
-            tagSelectedImageView = sender.tag
+            tagImageViewSelected = sender.tag
             showImagePicker()
         default:
             break
